@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mata Mosquito</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jogo.js"></script>
+</head>
+<body onresize="ajustaTamanhoPalcoDeJogo()">
+
+    <div class="painel">
+
+        <div class="vidas">
+            <img id="v1" src="imagens/coracao_cheio.png" alt="">
+            <img id='v2' src="imagens/coracao_cheio.png" alt="">
+            <img id="v3" src="imagens/coracao_cheio.png" alt="">
+        </div>
+        <div class="cronometro"> Tempo restante: <span id="cronometro"></span></div>
+    </div>
+   <script>
+                var nivel = window.location.search
+
+                var criaMosquitotempo = 1500
+
+                nivel.replace('?' , '')
+                
+              if ( nivel === 'normal' ){
+
+                criaMosquitotempo = 2000
+
+              }else if (nivel === 'dificil'){
+
+                criaMosquitotempo = 1000
+
+              }else if (nivel === 'mais_dificil'){
+                criaMosquitotempo = 750
+
+              }
+
+       var mosquito = setInterval(function() { posicionamentoRandomico()} , criaMosquitotempo )
+       document.getElementById('cronometro').innerHTML = tempo
+      
+   </script>
+</body>
+</html>
